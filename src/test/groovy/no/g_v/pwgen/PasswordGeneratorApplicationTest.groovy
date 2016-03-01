@@ -1,4 +1,4 @@
-package no.g_v
+package no.g_v.pwgen
 
 import org.junit.Test
 import org.junit.runner.RunWith
