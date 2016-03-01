@@ -28,6 +28,12 @@ repositories {
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.codehaus.groovy:groovy')
+    compile('org.codehaus.groovy:groovy-json')
+    compile('com.sparkjava:spark-core:2.3') {
+        exclude(module: 'slf4j-simple')
+        exclude(group: 'org.eclipse.jetty')
+        exclude(group: 'org.eclipse.jetty.websocket')
+    }
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
