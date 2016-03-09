@@ -3,6 +3,7 @@
 *.iml
 
 build/
+.gradle/
 
 #JRebel
 rebel.xml
