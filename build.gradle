@@ -1,16 +1,18 @@
 buildscript {
     ext {
-        springBootVersion = '1.3.3.RELEASE'
+        springBootVersion = '1.3.5.RELEASE'
+        kotlinVersion = '1.0.2'
     }
     repositories {
         mavenCentral()
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
     }
 }
 
-apply plugin: 'groovy'
+apply plugin: 'kotlin'
 apply plugin: 'spring-boot'
 
 jar {
@@ -27,9 +29,8 @@ repositories {
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
-    compile('org.codehaus.groovy:groovy')
-    compile('org.codehaus.groovy:groovy-json')
-    compile('com.sparkjava:spark-core:2.3') {
+    compile("org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}")
+    compile('com.sparkjava:spark-core:2.5') {
         exclude(module: 'slf4j-simple')
         exclude(group: 'org.eclipse.jetty')
         exclude(group: 'org.eclipse.jetty.websocket')
