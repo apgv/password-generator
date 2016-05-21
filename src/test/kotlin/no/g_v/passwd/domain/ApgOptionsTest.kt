@@ -3,11 +3,11 @@ package no.g_v.passwd.domain
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
 
-class GenerationOptionsTest {
+class ApgOptionsTest {
 
     @Test
     fun default_values() {
-        val generationOptions = GenerationOptions()
+        val generationOptions = ApgOptions()
 
         assertThat(generationOptions.algorithm).isEqualTo(Algorithm.PRONOUNCEABLE)
         assertThat(generationOptions.numberOfPasswords).isEqualTo(1)
