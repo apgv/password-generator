@@ -21,14 +21,14 @@ class ApgOptionsTest {
 
     @Test
     fun validate_constraints() {
-        assertThat(hasConstraintViolations(ApgOptions())).isFalse()
+        assertThat(hasConstraintViolation(ApgOptions())).isFalse()
 
-        assertThat(hasConstraintViolations(ApgOptions(numberOfPasswords = 0))).isTrue()
-        assertThat(hasConstraintViolations(ApgOptions(numberOfPasswords = 11))).isTrue()
-        assertThat(hasConstraintViolations(ApgOptions(minPasswordLength = 7))).isTrue()
-        assertThat(hasConstraintViolations((ApgOptions(maxPasswordLength = 25)))).isTrue()
+        assertThat(hasConstraintViolation(ApgOptions(numberOfPasswords = 0))).isTrue()
+        assertThat(hasConstraintViolation(ApgOptions(numberOfPasswords = 11))).isTrue()
+        assertThat(hasConstraintViolation(ApgOptions(minPasswordLength = 7))).isTrue()
+        assertThat(hasConstraintViolation((ApgOptions(maxPasswordLength = 25)))).isTrue()
     }
 
-    private fun hasConstraintViolations(apgOptions: ApgOptions) = validator.validate(apgOptions).isNotEmpty()
+    private fun hasConstraintViolation(apgOptions: ApgOptions) = validator.validate(apgOptions).isNotEmpty()
 
 }
