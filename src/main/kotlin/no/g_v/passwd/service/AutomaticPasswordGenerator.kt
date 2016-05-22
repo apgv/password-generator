@@ -14,7 +14,8 @@ class AutomaticPasswordGenerator @Autowired constructor(val validator: Validator
             throw IllegalArgumentException(apgOptions.toString())
         }
 
-        val processBuilder = ProcessBuilder("apg",
+        val processBuilder = ProcessBuilder(
+                "apg",
                 "-a ${apgOptions.algorithm.mode}",
                 "-M ${apgOptions.symbolsets.mode()}",
                 "-m ${apgOptions.minPasswordLength}",
