@@ -24,12 +24,12 @@ class AutomaticPasswordGeneratorTest {
     }
 
     @Test
-    fun generate_should_return_one_password_if_validation_passes() {
+    fun generate_should_return_two_passwords_if_validation_passes() {
         val passwordGenerator = AutomaticPasswordGenerator(validator)
 
-        val passwords = passwordGenerator.generate(ApgOptions())
+        val passwords = passwordGenerator.generate(ApgOptions(numberOfPasswords = 2))
 
-        assertThat(passwords).hasSize(1)
+        assertThat(passwords).hasSize(2)
     }
 
     @Test
