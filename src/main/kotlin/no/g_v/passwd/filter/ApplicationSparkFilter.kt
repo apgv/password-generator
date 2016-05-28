@@ -8,7 +8,7 @@ import spark.servlet.SparkFilter
 import javax.servlet.FilterConfig
 
 @Component
-class ApplicationSparkFilter @Autowired constructor(val restResources: RestResources) : SparkFilter() {
+open class ApplicationSparkFilter @Autowired constructor(val restResources: RestResources) : SparkFilter() {
 
     override fun getApplication(filterConfig: FilterConfig?): SparkApplication? {
         return restResources
