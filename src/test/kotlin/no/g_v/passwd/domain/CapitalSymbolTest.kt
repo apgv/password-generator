@@ -6,9 +6,8 @@ import org.junit.Test
 class CapitalSymbolTest {
 
     @Test
-    fun enum_values() {
-        Assertions.assertThat(CapitalSymbol.values()).hasSize(2)
-        Assertions.assertThat(CapitalSymbol.MUST_USE.mode).isEqualTo("C")
-        Assertions.assertThat(CapitalSymbol.SHOULD_USE.mode).isEqualTo("c")
+    fun values() {
+        Assertions.assertThat(CapitalSymbol.mustUse).isEqualTo("C")
+        Assertions.assertThat(CapitalSymbol.shouldUse).isEqualTo("c")
     }
 }

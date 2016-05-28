@@ -9,6 +9,13 @@ class AlgorithmTest {
     fun enum_values() {
         assertThat(Algorithm.values()).hasSize(2)
         assertThat(Algorithm.PRONOUNCEABLE.mode).isEqualTo(0)
-        assertThat(Algorithm.RANDOM_CHAR.mode).isEqualTo(1)
+        assertThat(Algorithm.RANDOM.mode).isEqualTo(1)
+    }
+
+    @Test
+    fun from_text() {
+        assertThat(Algorithm.fromText("random")).isEqualTo(Algorithm.RANDOM)
+        assertThat(Algorithm.fromText("")).isEqualTo(Algorithm.PRONOUNCEABLE)
+        assertThat(Algorithm.fromText(null)).isEqualTo(Algorithm.PRONOUNCEABLE)
     }
 }

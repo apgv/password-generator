@@ -6,9 +6,8 @@ import org.junit.Test
 class NumeralSymbolTest {
 
     @Test
-    fun enum_values() {
-        assertThat(NumeralSymbol.values()).hasSize(2)
-        assertThat(NumeralSymbol.MUST_USE.mode).isEqualTo("N")
-        assertThat(NumeralSymbol.SHOULD_USE.mode).isEqualTo("n")
+    fun values() {
+        assertThat(NumeralSymbol.mustUse).isEqualTo("N")
+        assertThat(NumeralSymbol.shouldUse).isEqualTo("n")
     }
 }
