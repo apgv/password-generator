@@ -36,6 +36,7 @@ dependencies {
         exclude(group: "org.eclipse.jetty.websocket")
     }
     compile("com.google.code.gson:gson")
+    compile("org.apache.commons:commons-lang3:3.4")
     testCompile("org.springframework.boot:spring-boot-starter-test")
     testCompile("org.assertj:assertj-core:3.4.1")
 }
