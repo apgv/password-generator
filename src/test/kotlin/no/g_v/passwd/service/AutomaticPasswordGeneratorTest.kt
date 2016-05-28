@@ -39,8 +39,8 @@ class AutomaticPasswordGeneratorTest {
         val passwords = passwordGenerator.generate(ApgOptions())
 
         assertThat(passwords[0].size)
-                .isGreaterThanOrEqualTo(ApgOptionDefaults.minPasswordLength)
-                .isLessThanOrEqualTo(ApgOptionDefaults.maxPasswordLength)
+                .isGreaterThanOrEqualTo(ApgOptionDefaults.MIN_PASSWORD_LENGTH.value)
+                .isLessThanOrEqualTo(ApgOptionDefaults.MAX_PASSWORD_LENGTH.value)
     }
 
     @Test(expected = IllegalArgumentException::class)

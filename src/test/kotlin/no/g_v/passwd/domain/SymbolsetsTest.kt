@@ -23,4 +23,12 @@ class SymbolsetsTest {
         val symbolsets = Symbolsets(specialSymbol = SpecialSymbol.MUST_USE, capitalSymbol = CapitalSymbol.MUST_USE)
         assertThat(symbolsets.mode()).isEqualTo("SnCl")
     }
+
+    @Test
+    fun mustOrShould() {
+        assertThat(Symbolsets.mustOrShould("true")).isEqualTo("MUST_USE")
+        assertThat(Symbolsets.mustOrShould("false")).isEqualTo("SHOULD_USE")
+        assertThat(Symbolsets.mustOrShould(null)).isEqualTo("SHOULD_USE")
+        assertThat(Symbolsets.mustOrShould(" ")).isEqualTo("SHOULD_USE")
+    }
 }
