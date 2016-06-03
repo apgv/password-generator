@@ -1,13 +1,10 @@
 package no.g_v.passwd.service
 
 import no.g_v.passwd.domain.ApgOptions
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.stereotype.Service
 import java.io.InputStreamReader
 import javax.validation.Validator
 
-@Service
-class AutomaticPasswordGenerator @Autowired constructor(val validator: Validator) : PasswordGenerator {
+class AutomaticPasswordGenerator constructor(val validator: Validator) : PasswordGenerator {
 
     override fun generate(apgOptions: ApgOptions): List<CharArray> {
         if (hasConstraintViolation(apgOptions)) {
