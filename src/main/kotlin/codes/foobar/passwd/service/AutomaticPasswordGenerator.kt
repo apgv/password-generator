@@ -24,7 +24,7 @@ class AutomaticPasswordGenerator constructor(val validator: Validator) : Passwor
 
         return InputStreamReader(process.inputStream)
                 .readLines()
-                .map { it.toCharArray() }
+                .map(String::toCharArray)
     }
 
     private fun hasConstraintViolation(apgOptions: ApgOptions) = validator.validate(apgOptions).isNotEmpty()
