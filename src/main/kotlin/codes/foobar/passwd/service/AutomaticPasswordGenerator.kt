@@ -11,16 +11,15 @@ class AutomaticPasswordGenerator constructor(val validator: Validator) : Passwor
             throw IllegalArgumentException(apgOptions.toString())
         }
 
-        val processBuilder = ProcessBuilder(
-                "apg",
-                "-a ${apgOptions.algorithm.mode}",
-                "-M ${apgOptions.symbolsets.mode()}",
-                "-m ${apgOptions.minPasswordLength}",
-                "-x ${apgOptions.maxPasswordLength}",
-                "-n ${apgOptions.numberOfPasswords}",
-                "-c cl_ceed")
-
-        val process = processBuilder.start()
+        val process = Runtime.getRuntime().exec(
+                """apg
+                    -a ${apgOptions.algorithm.mode}
+                    -M ${apgOptions.symbolsets.mode()}
+                    -m ${apgOptions.minPasswordLength}
+                    -x ${apgOptions.maxPasswordLength}
+                    -n ${apgOptions.numberOfPasswords}
+                    -c cl_ceed"""
+        )
         process.waitFor()
 
         return InputStreamReader(process.inputStream)
