@@ -1,9 +1,9 @@
-package no.g_v.passwd
+package codes.foobar.passwd
 
+import codes.foobar.passwd.domain.*
+import codes.foobar.passwd.service.AutomaticPasswordGenerator
+import codes.foobar.passwd.service.PasswordGenerator
 import com.google.gson.Gson
-import no.g_v.passwd.domain.*
-import no.g_v.passwd.service.AutomaticPasswordGenerator
-import no.g_v.passwd.service.PasswordGenerator
 import spark.Spark.get
 import spark.Spark.port
 import javax.validation.Validation

@@ -1,6 +1,6 @@
-package no.g_v.passwd.service
+package codes.foobar.passwd.service
 
-import no.g_v.passwd.domain.ApgOptions
+import codes.foobar.passwd.domain.ApgOptions
 import java.io.InputStreamReader
 import javax.validation.Validator
 

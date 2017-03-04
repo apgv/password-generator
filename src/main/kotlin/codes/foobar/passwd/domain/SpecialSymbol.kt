@@ -1,3 +1,3 @@
-package no.g_v.passwd.domain
+package codes.foobar.passwd.domain
 
 object SpecialSymbol : Symbol(mustUse = "S", shouldUse = "s")

@@ -1,4 +1,4 @@
-package no.g_v.passwd.domain
+package codes.foobar.passwd.domain
 
 import org.assertj.core.api.Assertions
 import org.junit.Test

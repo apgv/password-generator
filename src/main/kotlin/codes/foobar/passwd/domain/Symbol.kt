@@ -1,4 +1,4 @@
-package no.g_v.passwd.domain
+package codes.foobar.passwd.domain
 
 import org.apache.commons.lang3.BooleanUtils.toBoolean
 

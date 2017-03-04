@@ -1,6 +1,6 @@
-package no.g_v.passwd.domain
+package codes.foobar.passwd.domain
 
-import no.g_v.passwd.domain.ApgOptionDefaults.*
+import codes.foobar.passwd.domain.ApgOptionDefaults.*
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
 import javax.validation.Validation

@@ -1,4 +1,4 @@
-package no.g_v.passwd.domain
+package codes.foobar.passwd.domain
 
 enum class Algorithm(val mode: Int) {
     PRONOUNCEABLE(0),

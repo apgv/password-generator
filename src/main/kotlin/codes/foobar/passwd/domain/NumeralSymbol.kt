@@ -1,3 +1,3 @@
-package no.g_v.passwd.domain
+package codes.foobar.passwd.domain
 
 object NumeralSymbol : Symbol(mustUse = "N", shouldUse = "n")

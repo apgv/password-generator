@@ -1,7 +1,7 @@
-package no.g_v.passwd.service
+package codes.foobar.passwd.service
 
-import no.g_v.passwd.domain.ApgOptionDefaults
-import no.g_v.passwd.domain.ApgOptions
+import codes.foobar.passwd.domain.ApgOptionDefaults
+import codes.foobar.passwd.domain.ApgOptions
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
 import org.mockito.Mockito.mock

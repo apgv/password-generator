@@ -1,4 +1,4 @@
-package no.g_v.passwd.domain
+package codes.foobar.passwd.domain
 
 enum class ApgOptionDefaults(val value: Int) {
     NUMBER_OF_PASSWORDS(1),

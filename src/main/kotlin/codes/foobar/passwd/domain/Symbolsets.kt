@@ -1,4 +1,4 @@
-package no.g_v.passwd.domain
+package codes.foobar.passwd.domain
 
 data class Symbolsets(val specialSymbol: String = SpecialSymbol.shouldUse,
                       val numeralSymbol: String = NumeralSymbol.shouldUse,

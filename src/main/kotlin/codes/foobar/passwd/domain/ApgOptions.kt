@@ -1,6 +1,6 @@
-package no.g_v.passwd.domain
+package codes.foobar.passwd.domain
 
-import no.g_v.passwd.domain.ApgOptionDefaults.*
+import codes.foobar.passwd.domain.ApgOptionDefaults.*
 import org.apache.commons.lang3.math.NumberUtils.toInt
 import javax.validation.constraints.Max
 import javax.validation.constraints.Min
