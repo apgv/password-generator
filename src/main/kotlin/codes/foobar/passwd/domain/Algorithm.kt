@@ -5,6 +5,6 @@ enum class Algorithm(val mode: Int) {
     RANDOM(1);
 
     companion object {
-        fun fromText(s: String?): Algorithm = if (RANDOM.name.equals(s?.toUpperCase())) RANDOM else PRONOUNCEABLE
+        fun fromText(s: String?): Algorithm = if (RANDOM.name == s?.toUpperCase()) RANDOM else PRONOUNCEABLE
     }
 }
