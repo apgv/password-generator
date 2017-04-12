@@ -12,13 +12,21 @@ buildscript {
 
 apply plugin: "kotlin"
 
-jar {
-    baseName = "password-generator"
-    version = "0.0.1-SNAPSHOT"
-}
+version = 1.0
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
+
+task fatJar(type: Jar) {
+    manifest {
+        attributes "Implementation-Title": project.name,
+                "Implementation-Version": version,
+                "Main-Class": "codes.foobar.passwd.ApplicationKt"
+    }
+    baseName = project.name + "-all"
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
 
 repositories {
     mavenCentral()
