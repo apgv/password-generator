@@ -1,7 +1,9 @@
-FROM openjdk:8-jre-alpine
+FROM gcr.io/google_appengine/openjdk
 
-RUN apk add --no-cache apg
+VOLUME /tmp
 
-COPY build/libs/*.jar app.jar
+RUN apt-get update && apt-get install apg -y
 
-CMD ["java", "-jar", "app.jar"]
+ADD build/libs/password-generator-all-1.0.jar app.jar
+
+CMD ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "app.jar"]
