@@ -17,7 +17,12 @@ version = 1.0
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-task fatJar(type: Jar) {
+task copyFrontEnd(type: Copy) {
+    from 'frontend/build'
+    into 'build/resources/main/frontend'
+}
+
+task fatJar(dependsOn: copyFrontEnd, type: Jar) {
     manifest {
         attributes "Implementation-Title": project.name,
                 "Implementation-Version": version,
