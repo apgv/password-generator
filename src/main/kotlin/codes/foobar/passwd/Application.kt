@@ -4,8 +4,7 @@ import codes.foobar.passwd.domain.*
 import codes.foobar.passwd.service.AutomaticPasswordGenerator
 import codes.foobar.passwd.service.PasswordGenerator
 import com.google.gson.Gson
-import spark.Spark.get
-import spark.Spark.port
+import spark.Spark.*
 import javax.validation.Validation
 
 object Application {
@@ -16,6 +15,7 @@ object Application {
 fun main(args: Array<String>) {
 
     port(8080)
+    staticFiles.location("/frontend")
 
     get("/password", { request, response ->
         val passwordGenerator = Application.passwordGenerator()
