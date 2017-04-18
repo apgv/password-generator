@@ -17,7 +17,12 @@ version = 1.0
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-task copyFrontEnd(type: Copy) {
+task buildFrontEnd(type: Exec) {
+    workingDir 'frontend'
+    commandLine 'npm', 'run', 'build'
+}
+
+task copyFrontEnd(dependsOn: buildFrontEnd, type: Copy) {
     from 'frontend/build'
     into 'build/resources/main/frontend'
 }
