@@ -7,7 +7,7 @@ import spark.Spark.*
 
 fun main(args: Array<String>) {
 
-    port(8080)
+    port(System.getenv("PORT").toInt())
     staticFiles.location("/frontend")
 
     get("/password", { request, response ->
