@@ -20,8 +20,7 @@ class App extends Component {
         fetch('/password')
             .then(response => response.json())
             .then(result => {
-                    let s = result[0];
-                    this.setState({password: s.join(''), pendingRequest: false})
+                    this.setState({password: result.join(''), pendingRequest: false})
                 }
             );
     }

@@ -1,16 +1,9 @@
 package codes.foobar.passwd
 
 import codes.foobar.passwd.domain.*
-import codes.foobar.passwd.service.AutomaticPasswordGenerator
-import codes.foobar.passwd.service.PasswordGenerator
+import codes.foobar.passwd.service.UrandomPasswordGenerator
 import com.google.gson.Gson
 import spark.Spark.*
-import javax.validation.Validation
-
-object Application {
-    fun passwordGenerator(): PasswordGenerator =
-            AutomaticPasswordGenerator(Validation.buildDefaultValidatorFactory().validator)
-}
 
 fun main(args: Array<String>) {
 
@@ -18,22 +11,15 @@ fun main(args: Array<String>) {
     staticFiles.location("/frontend")
 
     get("/password", { request, response ->
-        val passwordGenerator = Application.passwordGenerator()
-        val symbolsets = Symbolsets(
-                specialSymbol = SpecialSymbol.mustOrShould(request.queryParams("specialSymbol")),
-                numeralSymbol = NumeralSymbol.mustOrShould(request.queryParams("numeralSymbol")),
-                capitalSymbol = CapitalSymbol.mustOrShould(request.queryParams("capitalSymbol")),
-                smallLetter = SmallLetter.mustOrShould(request.queryParams("smallLetter"))
-        )
-        val apgOptions = ApgOptions(
-                algorithm = Algorithm.fromText(request.queryParams("algorithm")),
-                numberOfPasswords = ApgOptions.valueOrDefault(request.queryParams("numberOfPasswords"), ApgOptionDefaults.NUMBER_OF_PASSWORDS),
-                minPasswordLength = ApgOptions.valueOrDefault(request.queryParams("minLength"), ApgOptionDefaults.MIN_PASSWORD_LENGTH),
-                maxPasswordLength = ApgOptions.valueOrDefault(request.queryParams("maxLength"), ApgOptionDefaults.MAX_PASSWORD_LENGTH),
-                symbolsets = symbolsets
+        val options = Options(
+                lowerCase = request.queryParams("lowerCase").toBoolean(),
+                upperCase = request.queryParams("uppercase").toBoolean(),
+                numbers = request.queryParams("numbers").toBoolean(),
+                special = request.queryParams("special").toBoolean(),
+                passwordLength = request.queryParams("length")?.toInt() ?: 18
         )
 
         response.type("application/json")
-        Gson().toJson(passwordGenerator.generate(apgOptions))
+        Gson().toJson(UrandomPasswordGenerator.generate(options))
     })
 }

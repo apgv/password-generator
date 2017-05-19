@@ -11,31 +11,41 @@ class PasswordRegexTest {
 
     @Test
     fun lower_case() {
-        assertThat(PasswordRegex.pattern(lowerCase = true, upperCase = false, numbers = false, special = false))
+        val options = Options(lowerCase = true, upperCase = false, numbers = false, special = false)
+
+        assertThat(PasswordRegex.pattern(options))
                 .isEqualTo(A_Z_LOWER_REGEX)
     }
 
     @Test
     fun upper_case() {
-        assertThat(PasswordRegex.pattern(lowerCase = false, upperCase = true, numbers = false, special = false))
+        val options = Options(lowerCase = false, upperCase = true, numbers = false, special = false)
+
+        assertThat(PasswordRegex.pattern(options))
                 .isEqualTo(A_Z_UPPER_REGEX)
     }
 
     @Test
-    fun number() {
-        assertThat(PasswordRegex.pattern(lowerCase = false, upperCase = false, numbers = true, special = false))
+    fun numbers() {
+        val options = Options(lowerCase = false, upperCase = false, numbers = true, special = false)
+
+        assertThat(PasswordRegex.pattern(options))
                 .isEqualTo(NUMBER_REGEX)
     }
 
     @Test
     fun special() {
-        assertThat(PasswordRegex.pattern(lowerCase = false, upperCase = false, numbers = false, special = true))
+        val options = Options(lowerCase = false, upperCase = false, numbers = false, special = true)
+
+        assertThat(PasswordRegex.pattern(options))
                 .isEqualTo(SPECIAL_REGEX)
     }
 
     @Test
     fun all_false_gives_full_regex() {
-        assertThat(PasswordRegex.pattern(lowerCase = false, upperCase = false, numbers = false, special = false))
+        val options = Options(lowerCase = false, upperCase = false, numbers = false, special = false)
+
+        assertThat(PasswordRegex.pattern(options))
                 .isEqualTo(A_Z_LOWER_REGEX + A_Z_UPPER_REGEX + NUMBER_REGEX + SPECIAL_REGEX)
     }
 }
