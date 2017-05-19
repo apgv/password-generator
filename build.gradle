@@ -38,10 +38,6 @@ task fatJar(dependsOn: copyFrontEnd, type: Jar) {
     with jar
 }
 
-//task used by Heroku
-task stage(dependsOn: ['clean', 'fatJar'])
-fatJar.mustRunAfter clean
-
 repositories {
     mavenCentral()
 }
