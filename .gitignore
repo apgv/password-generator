@@ -4,6 +4,4 @@
 
 build/
 .gradle/
-
-#JRebel
-rebel.xml
+classes/
